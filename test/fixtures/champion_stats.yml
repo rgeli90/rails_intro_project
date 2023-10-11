@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  games_played: MyString
+  kda: MyString
+  win_rate: 1.5
+  pick_rate: 1.5
+  ban_rate: 1.5
+  gold: 1
+  champion: one
+
+two:
+  games_played: MyString
+  kda: MyString
+  win_rate: 1.5
+  pick_rate: 1.5
+  ban_rate: 1.5
+  gold: 1
+  champion: two

@@ -10,27 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_044012) do
-  create_table "champions", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer "stats_id"
-    t.index ["stats_id"], name: "index_champions_on_stats_id"
-  end
-
-  create_table "stats", force: :cascade do |t|
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_061837) do
+  create_table "champion_stats", force: :cascade do |t|
     t.string "games_played"
-    t.float "kda"
+    t.string "kda"
     t.float "win_rate"
     t.float "pick_rate"
     t.float "ban_rate"
-    t.float "cs"
     t.integer "gold"
+    t.integer "champion_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "champion_id", null: false
-    t.index ["champion_id"], name: "index_stats_on_champion_id"
+    t.float "cs"
+    t.index ["champion_id"], name: "index_champion_stats_on_champion_id"
+  end
+
+  create_table "champions", force: :cascade do |t|
+    t.string "name"
+    t.integer "location_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["location_id"], name: "index_champions_on_location_id"
+  end
+
+  create_table "locations", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "team_comps", force: :cascade do |t|
@@ -49,8 +55,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_044012) do
     t.index ["champion_two_id"], name: "index_team_comps_on_champion_two_id"
   end
 
-  add_foreign_key "champions", "stats", column: "stats_id"
-  add_foreign_key "stats", "champions"
+  add_foreign_key "champion_stats", "champions"
+  add_foreign_key "champions", "locations"
   add_foreign_key "team_comps", "champion_fives", column: "champion_five_id"
   add_foreign_key "team_comps", "champion_fours"
   add_foreign_key "team_comps", "champion_ones"

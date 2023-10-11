@@ -1,5 +1,4 @@
 class Champion < ApplicationRecord
-  validates :name, presense: true
-  
-  has_one :stat
+  has_one :champion_stat
+  belongs_to :location
 end

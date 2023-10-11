@@ -2,8 +2,6 @@
 
 one:
   name: MyString
-  location: one
 
 two:
   name: MyString
-  location: two
