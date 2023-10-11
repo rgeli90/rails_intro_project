@@ -1,6 +1,7 @@
 require "csv"
 Stat.delete_all
 Champion.delete_all
+
 ActiveRecord::Base.connection.execute("DELETE FROM sqlite_sequence WHERE name='champions';")
 
 filename = Rails.root.join("db/ARAM_Golbal_September_Status.csv")
