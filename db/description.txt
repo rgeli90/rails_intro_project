@@ -1,0 +1,5 @@
+The dataset we chose for our project contains Champions
+and stats from the video game "League of Legends".
+
+We are also using "Faker" to generate locations from the game
+using their LeagueOfLegends class.
