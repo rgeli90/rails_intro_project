@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_024531) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_11_044012) do
   create_table "champions", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -41,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_024531) do
     t.integer "champion_five_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "comp_name"
     t.index ["champion_five_id"], name: "index_team_comps_on_champion_five_id"
     t.index ["champion_four_id"], name: "index_team_comps_on_champion_four_id"
     t.index ["champion_one_id"], name: "index_team_comps_on_champion_one_id"
