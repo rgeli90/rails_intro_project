@@ -18,7 +18,7 @@ csv_data = File.read(filename)
 champions_data = CSV.parse(csv_data, headers: true, encoding: "utf-8")
 
 13.times do
-  location = Location.create(name: Faker::Games::LeagueOfLegends.unique.location)
+  Location.create(name: Faker::Games::LeagueOfLegends.unique.location)
 end
 
 champ_location = Location.find(1)
