@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  champion_one: one
+  champion_two: one
+  champion_three: one
+  champion_four: one
+  champion_five: one
+
+two:
+  champion_one: two
+  champion_two: two
+  champion_three: two
+  champion_four: two
+  champion_five: two
