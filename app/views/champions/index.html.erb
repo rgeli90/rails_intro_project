@@ -1,0 +1,9 @@
+<h1>Champions</h1>
+
+<ul>
+    <% @champions.each do |champion| %>
+        <li>
+            <%= link_to champion.name, champion %>
+        </li>
+    <% end %>
+</ul>
