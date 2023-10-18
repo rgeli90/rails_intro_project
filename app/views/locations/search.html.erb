@@ -1,11 +1,19 @@
-<h1>Search Results for Champions in <%= @selected_location.name %></h1>
+<div class="container">
+  <h1>Search Results for Champions in <%= @selected_location.name %></h1>
 
-<% if @champions_like.any? %>
-  <ul>
-    <% @champions_like.each do |champion| %>
-      <li><%= champion.name %></li>
+  <div class="row">
+    <% if @champions_like.any? %>
+      <div class="col-md-3">
+        <div class="card mb-3">
+          <div class="card-body">
+            <% @champions_like.each do |champion| %>
+              <%= link_to champion.name, champion %>
+            </div>
+          </div>
+        </div>
     <% end %>
-  </ul>
-<% else %>
-  <p>No champions found in this location.</p>
-<% end %>
+  </div>
+  <% else %>
+    <p>No champions found in this location.</p>
+  <% end %>
+</div>

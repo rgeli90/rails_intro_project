@@ -1,7 +1,9 @@
-<h1><%= @champion.name %></h1>
-<p>Region: <%= link_to @champion.location.name, location_path(@champion.location) %></p>
-<p>Games Played: <%= @champion.champion_stat.games_played %></p>
-<p>K/D/A: <%= @champion.champion_stat.kda %></p>
-<p>Win Rate: <%= @champion.champion_stat.win_rate %></p>
-<p>Pick Rate: <%= @champion.champion_stat.pick_rate %></p>
-<p>Average CS per game: <%= @champion.champion_stat.cs %></p>
+<div class="container">
+    <h1><%= @champion.name %></h1>
+    <p>Region: <%= link_to @champion.location.name, location_path(@champion.location) %></p>
+    <p>Games Played: <%= @champion.champion_stat.games_played %></p>
+    <p>K/D/A: <%= @champion.champion_stat.kda %></p>
+    <p>Win Rate: <%= (100 * @champion.champion_stat.win_rate).round(2) %>%</p>
+    <p>Pick Rate: <%= (100 * @champion.champion_stat.pick_rate).round(2) %>%</p>
+    <p>Average CS per game: <%= @champion.champion_stat.cs %></p>
+</div>
