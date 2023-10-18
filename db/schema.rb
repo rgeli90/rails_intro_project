@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_10_11_061837) do
+ActiveRecord::Schema[7.0].define(version: 2023_10_18_161849) do
   create_table "champion_stats", force: :cascade do |t|
     t.string "games_played"
     t.string "kda"
@@ -31,6 +31,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_061837) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["location_id"], name: "index_champions_on_location_id"
+  end
+
+  create_table "champions_team_comps", force: :cascade do |t|
+    t.integer "champion_id", null: false
+    t.integer "team_comp_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["champion_id"], name: "index_champions_team_comps_on_champion_id"
+    t.index ["team_comp_id"], name: "index_champions_team_comps_on_team_comp_id"
   end
 
   create_table "locations", force: :cascade do |t|
@@ -57,6 +66,8 @@ ActiveRecord::Schema[7.0].define(version: 2023_10_11_061837) do
 
   add_foreign_key "champion_stats", "champions"
   add_foreign_key "champions", "locations"
+  add_foreign_key "champions_team_comps", "champions"
+  add_foreign_key "champions_team_comps", "team_comps"
   add_foreign_key "team_comps", "champion_fives", column: "champion_five_id"
   add_foreign_key "team_comps", "champion_fours"
   add_foreign_key "team_comps", "champion_ones"

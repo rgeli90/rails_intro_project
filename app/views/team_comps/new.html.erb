@@ -1,3 +1,21 @@
 <div class="container">
-    <h1>Create a Team</h1>
-    
+  <h1>Create a Team</h1>
+  <%= form_with model: @team_comp do |f| %>
+    <h2>Add Champions to Team</h2>
+
+    <div class="row">
+    <%= f.text_field :comp_name, class: "form-control", placeholder: "Team Name" %>
+      <% Champion.all.sort_by(&:name).each_slice(3) do |champions_row| %>
+        <div class="col-md-4">
+          <% champions_row.each do |champion| %>
+            <div class="form-check">
+              <input type="checkbox" name="team_comp[champion_ids][]" value="<%= champion.id %>" class="form-check-input" id="champion_<%= champion.id %>">
+              <label class="form-check-label" for="champion_<%= champion.id %>"><%= champion.name %></label>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+    <%= f.submit "Create Team", class: "btn btn-primary" %>
+  <% end %>
+</div>
