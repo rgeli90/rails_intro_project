@@ -1,1 +1,7 @@
 <h1><%= @champion.name %></h1>
+<p>Region: <%= @champion.location.name %></p>
+<p>Games Played: <%= @champion.champion_stat.games_played %></p>
+<p>K/D/A: <%= @champion.champion_stat.kda %></p>
+<p>Win Rate: <%= @champion.champion_stat.win_rate %></p>
+<p>Pick Rate: <%= @champion.champion_stat.pick_rate %></p>
+<p>Average CS per game: <%= @champion.champion_stat.cs %></p>

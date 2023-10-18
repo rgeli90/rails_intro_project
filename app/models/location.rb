@@ -1,5 +1,5 @@
 class Location < ApplicationRecord
-  has_many :champion
+  has_many :champions
 
   validates :name, presence: true
 end
