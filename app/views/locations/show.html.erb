@@ -1,7 +1,15 @@
-<h1><%= @location.name %></h1>
-<h2>Champions in this region</h2>
-<ul>
-    <% @champions.each do |champion| %>
-        <li><%= link_to champion.name, champion_path(champion) %></li>
-    <% end %>
-</ul>
+<div class="container">
+    <h1><%= @location.name %></h1>
+    <h2>Champions in this region</h2>
+    <div class="row">
+        <% @champions.each do |champion| %>
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <%= link_to champion.name, champion_path(champion) %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>

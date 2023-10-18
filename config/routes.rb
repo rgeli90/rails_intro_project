@@ -6,4 +6,5 @@ Rails.application.routes.draw do
 
   resources :champions
   resources :locations
+  resources :team_comps
 end
