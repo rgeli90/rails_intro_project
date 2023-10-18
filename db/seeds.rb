@@ -21,9 +21,9 @@ champions_data = CSV.parse(csv_data, headers: true, encoding: "utf-8")
   Location.create(name: Faker::Games::LeagueOfLegends.unique.location)
 end
 
-champ_location = Location.find(1)
-
 champions_data.each do |c|
+  champ_location = Location.find(rand(1..13))
+
   champions = Champion.new(name: c["Champion"], location: champ_location)
 
   if champions && champions.valid?
