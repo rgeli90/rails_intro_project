@@ -1,14 +1,14 @@
-<% if @selected_location.present? %>
-  <div class="container">
+<div class="container">
+  <% if @selected_location.present? %>
   <h1>Search Results for Champions in <%= @selected_location.name %></h1>
 
     <div class="row">
     <% if @champions_like.any? %>
+      <% @champions_like.each do |champion| %>
         <div class="col-md-3">
-        <div class="card mb-3">
-          <div class="card-body">
-              <% @champions_like.each do |champion| %>
-                <%= link_to champion.name, champion %>
+          <div class="card mb-3">
+            <div class="card-body">
+              <%= link_to champion.name, champion %>
             </div>
           </div>
         </div>
@@ -22,12 +22,17 @@
     <p>Error: Please enter a value in the search bar or select a location from the drop down menu.</p>
   <% else %>
     <h1>Search Results for Champions: <%= @input %></h1>
-    <ul>
+    <div class="row">
       <% @champions_like.each do |champion| %>
-        <li><%= link_to champion.name, champion %></li>
-      <% end %>
-    </ul>
+        <div class="col-md-3">
+          <div class="card mb-3">
+            <div class="card-body">
+              <%= link_to champion.name, champion %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    </div>
   <% end %>
 <% end %>
-
 </div>
