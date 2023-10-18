@@ -1,5 +1,5 @@
 <h1><%= @champion.name %></h1>
-<p>Region: <%= @champion.location.name %></p>
+<p>Region: <%= link_to @champion.location.name, location_path(@champion.location) %></p>
 <p>Games Played: <%= @champion.champion_stat.games_played %></p>
 <p>K/D/A: <%= @champion.champion_stat.kda %></p>
 <p>Win Rate: <%= @champion.champion_stat.win_rate %></p>

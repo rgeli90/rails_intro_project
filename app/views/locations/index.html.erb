@@ -1,0 +1,8 @@
+<h1>Regions</h1>
+<ul>
+    <% @locations.each do |location| %>
+        <li>
+            <%= link_to location.name, location %>
+        </li>
+    <% end %>
+</ul>
