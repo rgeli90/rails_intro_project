@@ -1,0 +1,11 @@
+<h1>Search Results for Champions in <%= @selected_location.name %></h1>
+
+<% if @champions_like.any? %>
+  <ul>
+    <% @champions_like.each do |champion| %>
+      <li><%= champion.name %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No champions found in this location.</p>
+<% end %>
