@@ -1,9 +1,15 @@
-<h1>Champions</h1>
+<div class="container">
+    <h1>Champions</h1>
 
-<ul>
-    <% @champions.each do |champion| %>
-        <li>
-            <%= link_to champion.name, champion %>
-        </li>
-    <% end %>
-</ul>
+    <div class="row">
+        <% @champions.each do |champion| %>
+            <div class="col-md-3">
+                <div class="card mb-3">
+                    <div class="card-body">
+                        <%= link_to champion.name, champion %>
+                    </div>
+                </div>
+            </div>
+        <% end %>
+    </div>
+</div>
