@@ -5,6 +5,7 @@ ruby "3.1.2"
 
 # Kaminari
 gem 'kaminari'
+gem 'kaminari-bootstrap', '~> 3.0.1'
 
 # Bootstrap
 gem 'bootstrap', "~> 5.3.1"
