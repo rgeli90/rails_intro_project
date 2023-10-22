@@ -1,11 +1,25 @@
-<h1>Search Results for Champions in <%= @selected_location.name %></h1>
+<% if @selected_location.present? %>
+  <h1>Search Results for Champions in <%= @selected_location.name %></h1>
 
-<% if @champions_like.any? %>
-  <ul>
-    <% @champions_like.each do |champion| %>
-      <li><%= champion.name %></li>
-    <% end %>
-  </ul>
+  <% if @champions_like.any? %>
+    <ul>
+      <% @champions_like.each do |champion| %>
+        <li><%= link_to champion.name, champion %></li>
+      <% end %>
+    </ul>
+  <% else %>
+    <p>No champions found in this location.</p>
+  <% end %>
 <% else %>
-  <p>No champions found in this location.</p>
+  <% if @champions_like.nil?%>
+    <h1>Search Results for Champions: <%= @input %> </h1>
+    <p>Error: Please enter a value in the search bar or select a location from the drop down menu.</p>
+  <% else %>
+    <h1>Search Results for Champions: <%= @input %></h1>
+    <ul>
+      <% @champions_like.each do |champion| %>
+        <li><%= link_to champion.name, champion %></li>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>
